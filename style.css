@@ -1,0 +1,553 @@
+/* Cores utilizadas no projeto */
+:root {
+  --cor-rosa: #ec4899;
+  --cor-rosa-escuro: #db2777;
+  --cor-rosa-claro: #fce7f3;
+
+  --cor-azul: #38bdf8;
+  --cor-azul-claro: #e0f2fe;
+
+  --cor-amarelo: #facc15;
+  --cor-creme: #fff7ed;
+  --cor-branco: #ffffff;
+
+  --cor-texto: #3f3f46;
+  --cor-texto-suave: #71717a;
+  --cor-borda: #f9a8d4;
+
+  --cor-sucesso: #16a34a;
+  --cor-sucesso-fundo: #dcfce7;
+
+  --cor-erro: #dc2626;
+  --cor-erro-fundo: #fee2e2;
+
+  --sombra: 0 8px 24px rgb(236 72 153 / 15%);
+}
+
+/* Remove configurações padrão do navegador */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configurações gerais da página */
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  color: var(--cor-texto);
+  background:
+    radial-gradient(circle at top left, var(--cor-rosa-claro), transparent 35%),
+    radial-gradient(circle at bottom right, var(--cor-azul-claro), transparent 35%),
+    var(--cor-creme);
+  font-family: "Nunito", sans-serif;
+}
+
+/* Cabeçalho */
+header {
+  position: relative;
+  padding: 22px 20px 24px;
+  overflow: hidden;
+  color: var(--cor-branco);
+  text-align: center;
+  background: linear-gradient(120deg, var(--cor-rosa), #a78bfa, var(--cor-azul));
+  border-bottom: 5px solid var(--cor-amarelo);
+}
+
+/* Conteúdo central do cabeçalho */
+.marca {
+  position: relative;
+  z-index: 1;
+}
+
+/* Nome da sorveteria */
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: "Baloo 2", cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 8px rgb(63 63 70 / 20%);
+}
+/* Ícones de sorvete */
+.icone-sorvete {
+  display: inline-block;
+  font-size: 1.7rem;
+}
+
+.icone-sorvete:first-child {
+  transform: rotate(-10deg);
+}
+
+.icone-sorvete:last-child {
+  transform: rotate(10deg);
+}
+
+/* Indicador do caixa */
+.status-caixa {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  padding: 6px 12px;
+  color: var(--cor-texto);
+  background: rgb(255 255 255 / 85%);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Bolinha verde */
+.indicador-status {
+  width: 8px;
+  height: 8px;
+  background: var(--cor-sucesso);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgb(22 163 74 / 15%);
+}
+/* Área principal do PDV */
+.pdv {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  column-gap: 40px;
+  width: min(1260px, 100%);
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* Títulos das seções */
+.produtos h2,
+.pedido h2 {
+  margin-bottom: 20px;
+  color: var(--cor-rosa-escuro);
+}
+
+/* Lista dos produtos */
+#lista-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+/* Card de cada produto */
+.card-produto {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 20px;
+  overflow: hidden;
+  background: var(--cor-branco);
+  border: 2px solid var(--cor-rosa-claro);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Efeito quando o mouse passa no card */
+.card-produto:hover {
+  border-color: var(--cor-rosa);
+  box-shadow: 0 12px 30px rgb(236 72 153 / 22%);
+  transform: translateY(-5px);
+}
+
+.card-produto h3 {
+  margin-bottom: 8px;
+  color: var(--cor-rosa-escuro);
+  font-size: 1.25rem;
+}
+
+.card-produto p {
+  flex: 1;
+  margin-bottom: 16px;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+.card-produto strong {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--cor-texto);
+  font-size: 1.2rem;
+}
+
+.imagem-produto {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 16px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Configurações gerais dos botões */
+button {
+  padding: 11px 16px;
+  color: var(--cor-branco);
+  background: var(--cor-rosa);
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--cor-rosa-escuro);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--cor-amarelo);
+  outline-offset: 2px;
+}
+
+/* Botão Adicionar */
+.botao-adicionar {
+  width: 100%;
+}
+
+/* Área do pedido */
+.pedido {
+  align-self: start;
+  width: 100%;
+  margin-top: 48px;
+  margin-left: 40px;
+  padding: 24px;
+  background: var(--cor-branco);
+  border: 2px solid var(--cor-azul);
+  border-radius: 22px;
+  box-shadow: var(--sombra);
+}
+
+/* Mantém o pedido visível no computador */
+@media (max-width: 900px) {
+  .pdv {
+    grid-template-columns: 1fr;
+  }
+
+  .pedido {
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+/* Lista dos itens adicionados */
+#itens-pedido {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Mensagem de pedido vazio */
+#itens-pedido > p {
+  padding: 18px;
+  color: var(--cor-texto-suave);
+  text-align: center;
+  background: var(--cor-creme);
+  border: 2px dashed var(--cor-borda);
+  border-radius: 14px;
+}
+
+/* Produto dentro do pedido */
+.item-pedido {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  background: var(--cor-azul-claro);
+  border-radius: 14px;
+}
+
+.item-pedido p {
+  margin-top: 4px;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+/* Controle de quantidade */
+.controle-quantidade {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.controle-quantidade button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: var(--cor-azul);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.controle-quantidade button:hover {
+  background: #0284c7;
+}
+
+.controle-quantidade span {
+  min-width: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Botão Remover */
+.botao-remover {
+  padding: 8px 12px;
+  color: var(--cor-erro);
+  background: var(--cor-erro-fundo);
+  font-size: 0.8rem;
+}
+
+.botao-remover:hover {
+  color: var(--cor-branco);
+  background: var(--cor-erro);
+}
+
+/* Área do cupom */
+.cupom {
+  padding: 18px 0;
+  border-top: 1px solid var(--cor-rosa-claro);
+  border-bottom: 1px solid var(--cor-rosa-claro);
+}
+
+.cupom label {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: bold;
+}
+
+.campo-cupom {
+  display: flex;
+  gap: 8px;
+}
+
+.campo-cupom input {
+  min-width: 0;
+  flex: 1;
+  padding: 11px 13px;
+  color: var(--cor-texto);
+  background: var(--cor-creme);
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.campo-cupom input::placeholder {
+  color: var(--cor-texto-suave);
+  text-transform: none;
+}
+
+/* Mensagem exibida abaixo do cupom */
+#mensagem-cupom {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.cupom-valido {
+  padding: 8px;
+  color: var(--cor-sucesso);
+  background: var(--cor-sucesso-fundo);
+  border-radius: 8px;
+}
+
+.cupom-invalido {
+  padding: 8px;
+  color: var(--cor-erro);
+  background: var(--cor-erro-fundo);
+  border-radius: 8px;
+}
+
+/* Resumo dos valores */
+.resumo {
+  padding: 18px 0;
+}
+
+.resumo p {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+}
+
+.resumo .total {
+  margin-top: 8px;
+  padding-top: 15px;
+  color: var(--cor-rosa-escuro);
+  border-top: 2px dashed var(--cor-borda);
+  font-size: 1.25rem;
+}
+
+/* Botão para finalizar */
+#finalizar-pedido {
+  width: 100%;
+  padding: 14px;
+  color: var(--cor-texto);
+  background: var(--cor-amarelo);
+  font-size: 1.05rem;
+}
+
+#finalizar-pedido:hover {
+  background: #eab308;
+}
+
+/* Modal de mensagens */
+.modal {
+  width: min(400px, calc(100% - 32px));
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  background: var(--cor-branco);
+  border: 2px solid var(--cor-rosa-claro);
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgb(63 63 70 / 30%);
+}
+
+/* Fundo escuro atrás do modal */
+.modal::backdrop {
+  background: rgb(63 63 70 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+/* Conteúdo interno */
+.modal-conteudo {
+  padding: 30px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top left, var(--cor-rosa-claro), transparent 45%), var(--cor-branco);
+}
+
+/* Ícone */
+.modal-icone {
+  display: grid;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 16px;
+  background: var(--cor-rosa-claro);
+  border: 3px solid var(--cor-amarelo);
+  border-radius: 50%;
+  font-size: 2rem;
+  place-items: center;
+}
+
+/* Título */
+.modal h2 {
+  margin-bottom: 8px;
+  color: var(--cor-rosa-escuro);
+  font-family: "Baloo 2", cursive;
+  font-size: 1.7rem;
+}
+
+/* Mensagem */
+.modal p {
+  margin-bottom: 22px;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+/* Botão */
+#fechar-modal {
+  min-width: 130px;
+  background: var(--cor-rosa);
+}
+
+#fechar-modal:hover {
+  background: var(--cor-rosa-escuro);
+}
+
+/* Pequena animação */
+.modal[open] {
+  animation: abrir-modal 0.25s ease;
+}
+
+@keyframes abrir-modal {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+footer {
+  margin-top: 0;
+  padding: 18px 20px;
+  color: var(--cor-branco);
+  text-align: center;
+  background: linear-gradient(135deg, var(--cor-rosa), var(--cor-azul));
+  border-top: 5px solid var(--cor-amarelo);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 560px) {
+  header {
+    padding: 24px 15px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .pdv {
+    padding: 20px 14px;
+  }
+
+  #lista-produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .pedido {
+    padding: 18px;
+  }
+
+  .campo-cupom {
+    flex-direction: column;
+  }
+
+  .campo-cupom button {
+    width: 100%;
+  }
+
+  .item-pedido {
+    grid-template-columns: 1fr;
+  }
+
+  .controle-quantidade {
+    justify-content: flex-start;
+  }
+
+  .botao-remover {
+    width: 100%;
+  }
+}

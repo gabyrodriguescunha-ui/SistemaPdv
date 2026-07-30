@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Geladinho PDV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+<header>
+  <div class="marca">
+    <h1>
+      <span class="icone-sorvete">🍦</span>
+      Geladinho
+      <span class="icone-sorvete">🍦</span>
+    </h1>
+
+      <span class="status-caixa">
+      <span class="indicador-status"></span>
+      Aberto para pedidos
+    </span>
+  </div>
+</header>
+
+    <main class="pdv">
+      <section class="produtos">
+        <h2>Escolha seu sorvete:</h2>
+
+        <div id="lista-produtos"></div>
+      </section>
+
+      <aside class="pedido">
+        <h2>Seu pedido</h2>
+
+        <div id="itens-pedido">
+          <p id="pedido-vazio">Nenhum sorvete adicionado.</p>
+        </div>
+
+        <div class="cupom">
+          <label for="codigo-cupom">Cupom de desconto</label>
+
+          <div class="campo-cupom">
+            <input id="codigo-cupom" type="text" placeholder="Digite o cupom" />
+
+            <button id="aplicar-cupom" type="button">Aplicar</button>
+          </div>
+
+          <p id="mensagem-cupom"></p>
+        </div>
+
+        <div class="resumo">
+          <p>
+            <span>Subtotal:</span>
+            <strong id="subtotal">R$ 0,00</strong>
+          </p>
+
+          <p>
+            <span>Desconto:</span>
+            <strong id="desconto">R$ 0,00</strong>
+          </p>
+
+          <p class="total">
+            <span>Total:</span>
+            <strong id="total">R$ 0,00</strong>
+          </p>
+        </div>
+
+        <button id="finalizar-pedido" type="button">Finalizar pedido</button>
+      </aside>
+    </main>
+<dialog id="modal-mensagem" class="modal">
+  <div class="modal-conteudo">
+    <span id="modal-icone" class="modal-icone">🍨</span>
+
+    <h2 id="modal-titulo">Pedido vazio</h2>
+
+    <p id="modal-texto">
+      Adicione pelo menos um produto ao pedido.
+    </p>
+
+    <button id="fechar-modal" type="button">
+      Entendi
+    </button>
+  </div>
+</dialog>
+    <footer>
+      <p>&copy; 2026 Gabriela Rodrigues e Lucas Martinez</p>
+    </footer>
+
+    <script type="module" src="./dist/index.js"></script>
+  </body>
+</html>
