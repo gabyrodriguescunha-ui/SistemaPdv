@@ -1,4 +1,4 @@
-import { calcularDesconto, calcularSubtotal, calcularTotal, obterPercentualCupom, } from "./calculos";
+import { calcularDesconto, calcularSubtotal, calcularTotal, obterPercentualCupom, } from "./calculos.js";
 // Produtos disponíveis
 const produtos = [
     {

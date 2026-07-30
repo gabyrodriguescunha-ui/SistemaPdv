@@ -3,7 +3,7 @@ import {
   calcularSubtotal,
   calcularTotal,
   obterPercentualCupom,
-} from "./calculos";
+} from "./calculos.js";
 
 interface Produto {
   id: number;
