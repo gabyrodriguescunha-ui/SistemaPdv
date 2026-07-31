@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório mensal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./relatorio.css" />
+  </head>
+  <body>
+    <header>
+      <div class="cabecalho-conteudo">
+        <div class="marca">
+          <h1>
+            <span class="icone-sorvete">🍦</span>
+            Geladinho
+            <span class="icone-sorvete">🍦</span>
+          </h1>
+
+          <span class="status-caixa">
+            <span class="indicador-status"></span>
+            Relatório atualizado
+          </span>
+        </div>
+
+        <nav class="navegacao" aria-label="Navegação principal">
+          <a href="./index.html">PDV</a>
+          <a class="link-ativo" href="./relatorio.html"> Relatório mensal </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pagina-relatorio">
+      <section class="titulo-relatorio">
+        <div>
+          <p class="rotulo">Visão geral</p>
+          <h2>Relatório de vendas</h2>
+        </div>
+
+        <label class="seletor-mes">
+          Mês analisado
+          <select id="mes-relatorio">
+            <option value="2026-07">Julho de 2026</option>
+          </select>
+        </label>
+      </section>
+
+      <p id="erro-relatorio" class="erro-relatorio" hidden></p>
+
+      <section class="cards-indicadores" aria-label="Indicadores do mês">
+        <article class="card-indicador destaque-rosa">
+          <span class="icone-indicador">💰</span>
+          <p>Valor arrecadado</p>
+          <strong id="valor-arrecadado">—</strong>
+        </article>
+        <article class="card-indicador destaque-azul">
+          <span class="icone-indicador">🧾</span>
+          <p>Vendas realizadas</p>
+          <strong id="total-vendas">—</strong>
+        </article>
+        <article class="card-indicador destaque-amarelo">
+          <span class="icone-indicador">🏆</span>
+          <p>Produto mais vendido</p>
+          <strong id="mais-vendido">—</strong>
+          <small id="quantidade-mais-vendido"></small>
+        </article>
+        <article class="card-indicador destaque-roxo">
+          <span class="icone-indicador">📦</span>
+          <p>Produto menos vendido</p>
+          <strong id="menos-vendido">—</strong>
+          <small id="quantidade-menos-vendido"></small>
+        </article>
+      </section>
+
+      <section class="grade-relatorio">
+        <article class="painel ranking">
+          <div class="cabecalho-painel">
+            <div>
+              <p class="rotulo">Ranking</p>
+              <h3>Produtos mais vendidos</h3>
+            </div>
+            <span>Quantidade</span>
+          </div>
+          <div id="ranking-produtos"></div>
+        </article>
+
+        <article class="painel preferencias">
+          <p class="rotulo">Preferências dos clientes</p>
+          <h3>Resumo da compra</h3>
+          <div class="preferencia">
+            <span class="preferencia-icone cupom-icone">🎟️</span>
+            <div>
+              <p>Cupom mais utilizado</p>
+              <strong id="cupom-mais-usado">—</strong>
+            </div>
+          </div>
+          <div class="preferencia">
+            <span class="preferencia-icone pagamento-icone">💳</span>
+            <div>
+              <p>Pagamento mais utilizado</p>
+              <strong id="pagamento-mais-usado">—</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer><p>&copy; 2026 Gabriela Rodrigues e Lucas Martinez</p></footer>
+    <script type="module" src="./dist/relatorio.js"></script>
+  </body>
+</html>

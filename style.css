@@ -1,15 +1,21 @@
-/* Cores utilizadas no projeto */
 :root {
   --cor-rosa: #ec4899;
   --cor-rosa-escuro: #db2777;
   --cor-rosa-claro: #fce7f3;
 
   --cor-azul: #38bdf8;
+  --cor-azul-escuro: #0284c7;
   --cor-azul-claro: #e0f2fe;
 
   --cor-amarelo: #facc15;
+  --cor-amarelo-escuro: #eab308;
+  --cor-roxo: #a78bfa;
   --cor-creme: #fff7ed;
   --cor-branco: #ffffff;
+  --cor-branco-92: rgb(255 255 255 / 92%);
+  --cor-branco-85: rgb(255 255 255 / 85%);
+  --cor-branco-45: rgb(255 255 255 / 45%);
+  --cor-branco-18: rgb(255 255 255 / 18%);
 
   --cor-texto: #3f3f46;
   --cor-texto-suave: #71717a;
@@ -22,6 +28,11 @@
   --cor-erro-fundo: #fee2e2;
 
   --sombra: 0 8px 24px rgb(236 72 153 / 15%);
+  --sombra-titulo: 0 3px 8px rgb(63 63 70 / 20%);
+  --sombra-status: 0 0 0 4px rgb(22 163 74 / 15%);
+  --sombra-card-hover: 0 12px 30px rgb(236 72 153 / 22%);
+  --sombra-modal: 0 20px 60px rgb(63 63 70 / 30%);
+  --cor-fundo-modal: rgb(63 63 70 / 55%);
 }
 
 /* Remove configurações padrão do navegador */
@@ -47,25 +58,35 @@ body {
 /* Cabeçalho */
 header {
   position: relative;
-  padding: 22px 20px 24px;
+  padding: 20px;
   overflow: hidden;
   color: var(--cor-branco);
-  text-align: center;
-  background: linear-gradient(120deg, var(--cor-rosa), #a78bfa, var(--cor-azul));
+  background: linear-gradient(120deg, var(--cor-rosa), var(--cor-roxo), var(--cor-azul));
   border-bottom: 5px solid var(--cor-amarelo);
 }
 
 /* Conteúdo central do cabeçalho */
-.marca {
+.cabecalho-conteudo {
   position: relative;
   z-index: 1;
+  display: flex;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
 /* Nome da sorveteria */
 
 header h1 {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 12px;
   margin: 0;
@@ -74,7 +95,7 @@ header h1 {
   font-weight: 700;
   line-height: 1;
   letter-spacing: 1px;
-  text-shadow: 0 3px 8px rgb(63 63 70 / 20%);
+  text-shadow: var(--sombra-titulo);
 }
 /* Ícones de sorvete */
 .icone-sorvete {
@@ -97,11 +118,10 @@ header h1 {
   align-items: center;
   padding: 6px 12px;
   color: var(--cor-texto);
-  background: rgb(255 255 255 / 85%);
+  background: var(--cor-branco-85);
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: bold;
-  margin-top: 10px;
 }
 
 /* Bolinha verde */
@@ -110,8 +130,58 @@ header h1 {
   height: 8px;
   background: var(--cor-sucesso);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgb(22 163 74 / 15%);
+  box-shadow: var(--sombra-status);
 }
+
+/* Menu de navegação */
+.navegacao {
+  display: flex;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.navegacao a {
+  padding: 9px 18px;
+  color: var(--cor-branco);
+  background: var(--cor-branco-18);
+  border: 1px solid var(--cor-branco-45);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navegacao a:hover {
+  color: var(--cor-rosa-escuro);
+  background: var(--cor-branco);
+  transform: translateY(-2px);
+}
+
+.navegacao .link-ativo {
+  color: var(--cor-rosa-escuro);
+  background: var(--cor-branco);
+}
+
+@media (max-width: 800px) {
+  .cabecalho-conteudo {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .marca {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navegacao {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* Área principal do PDV */
 .pdv {
   display: grid;
@@ -156,7 +226,7 @@ header h1 {
 /* Efeito quando o mouse passa no card */
 .card-produto:hover {
   border-color: var(--cor-rosa);
-  box-shadow: 0 12px 30px rgb(236 72 153 / 22%);
+  box-shadow: var(--sombra-card-hover);
   transform: translateY(-5px);
 }
 
@@ -302,7 +372,7 @@ input:focus-visible {
 }
 
 .controle-quantidade button:hover {
-  background: #0284c7;
+  background: var(--cor-azul-escuro);
 }
 
 .controle-quantidade span {
@@ -410,7 +480,7 @@ input:focus-visible {
 }
 
 #finalizar-pedido:hover {
-  background: #eab308;
+  background: var(--cor-amarelo-escuro);
 }
 
 /* Modal de mensagens */
@@ -422,12 +492,12 @@ input:focus-visible {
   background: var(--cor-branco);
   border: 2px solid var(--cor-rosa-claro);
   border-radius: 22px;
-  box-shadow: 0 20px 60px rgb(63 63 70 / 30%);
+  box-shadow: var(--sombra-modal);
 }
 
 /* Fundo escuro atrás do modal */
 .modal::backdrop {
-  background: rgb(63 63 70 / 55%);
+  background: var(--cor-fundo-modal);
   backdrop-filter: blur(3px);
 }
 
@@ -512,11 +582,20 @@ footer p {
 /* Ajuste para celulares */
 @media (max-width: 560px) {
   header {
-    padding: 24px 15px;
+    padding: 20px 15px;
   }
 
   header h1 {
     font-size: 1.8rem;
+  }
+
+  .navegacao {
+    gap: 8px;
+  }
+
+  .navegacao a {
+    padding: 8px 13px;
+    font-size: 0.9rem;
   }
 
   .pdv {
